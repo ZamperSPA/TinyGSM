@@ -164,7 +164,7 @@ class TinyGsmESP8266 : public TinyGsmModem<TinyGsmESP8266>,
   }
 
   void setBaudImpl(uint32_t baud) {
-    sendAT(GF("+UART_CUR="), baud, "8,1,0,0");
+    sendAT(GF("+UART_CUR="), baud, ",8,1,0,0");
     if (waitResponse() != 1) {
       sendAT(GF("+UART="), baud,
              "8,1,0,0");  // Really old firmwares might need this
